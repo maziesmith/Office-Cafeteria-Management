@@ -1,9 +1,9 @@
 # Office-Cafeteria-Management
 This is a POC for cafeteria management system for any corporate office. Contains the following components:
 
-1. Customer App for placing the orders
-2. Staff App for managing the orders
-3. Server app for mediating the communication between user app and staff app.
+1. Customer App for placing the orders - Android
+2. Staff App for managing the orders - Desktop
+3. Server app for mediating the communication between user app and staff app - Java
 
 The features of the system are:
 
