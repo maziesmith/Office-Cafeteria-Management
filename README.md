@@ -5,7 +5,7 @@ This is a POC for cafeteria management system for any corporate office. Contains
 2. Staff App for managing the orders
 3. Server app for mediating the communication between user app and staff app.
 
-The featires of the system are:
+The features of the system are:
 
 1. Ordering system for various food items
 2. Realtime tracking and notifications
