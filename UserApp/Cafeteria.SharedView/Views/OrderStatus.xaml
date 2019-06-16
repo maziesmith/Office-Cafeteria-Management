@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cafeteria.SharedView.Views.OrderStatus" BackgroundColor="{StaticResource BackGround}">
+    <ContentPage.Content>
+        <StackLayout Margin="0,20,0,0" Padding="20" Spacing="40">
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Large" Text="Order Number: " />
+                <Label FontSize="Large" Text="{Binding Order.OrderId}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource SecondaryAccentText}">
+                <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Large" Text="Order Status: " />
+                <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Large" Text="{Binding Status}" />
+            </StackLayout>
+            <WebView IsVisible="{Binding IsFoodPrepared,Converter={StaticResource BoolToInverseConverter}}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" HeightRequest="220" x:Name="InProgressImage" Source="http://harshmaurya.in/downloads/foodprepare.gif"/>
+            <Image IsVisible="{Binding IsFoodPrepared}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" HeightRequest="220" x:Name="PreparedImage" Aspect="AspectFill" Source="{Binding FoodItem.Details.Image, Converter={StaticResource BytesToImageSourceConverter}}"/>
+
+            <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource SecondaryAccentText}">
+                <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Large" Text="Bill Amount: Rs " />
+                <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Large" Text="{Binding Order.Payment.Amount}" />
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Large" Text="Approximate Time: " />
+                <Label FontSize="Large" Text="15 minutes" />
+            </StackLayout>
+            
+            <Button WidthRequest="100" HorizontalOptions="Center" Command="{Binding HomeCommand}" Text="Home"></Button>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cafeteria.SharedView.Views.Wallet" BackgroundColor="{StaticResource BackGround}">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="40">
+            <Frame BackgroundColor="Transparent" OutlineColor="White">
+                <StackLayout Spacing="20">
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="Large" Text="Wallet Balance: " />
+                        <Label FontSize="Large" TextColor="{StaticResource SecondaryAccent}" BackgroundColor="{StaticResource SecondaryAccentText}" Text="Rs 1450"/>
+                    </StackLayout>
+                    <Button HorizontalOptions="Center" VerticalOptions="Center" Text="Add Money"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" OutlineColor="White">
+                <StackLayout Spacing="20">
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="Large" Text="Voucher Balance: " />
+                        <Label FontSize="Large" TextColor="{StaticResource SecondaryAccent}" BackgroundColor="{StaticResource SecondaryAccentText}" Text="Rs 700"/>
+                    </StackLayout>
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" >
+                            <Image HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="160" HeightRequest="80" Source="tag"/>
+                            <Label TextColor="DarkBlue" FontAttributes="Bold" Text="3DETY233SD" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" >
+                            <Image HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="160" HeightRequest="80" Source="tag"/>
+                            <Label TextColor="DarkBlue" FontAttributes="Bold" Text="6ERQT24W3R" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" >
+                            <Image HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="160" HeightRequest="80" Source="tag"/>
+                            <Label TextColor="DarkBlue" FontAttributes="Bold" Text="LDETY875SD" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="1" >
+                            <Image HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="160" HeightRequest="80" Source="tag"/>
+                            <Label TextColor="DarkBlue" FontAttributes="Bold" Text="HDETY234ER" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                        </Grid>
+                    <Button HorizontalOptions="Center" VerticalOptions="Center" Text="Add voucher"></Button>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             xmlns:custom="clr-namespace:Cafeteria.SharedView.Custom;assembly=Cafeteria.SharedView"
+             x:Class="Cafeteria.SharedView.Views.FoodDetails" BackgroundColor="{StaticResource BackGround}">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView HasUnevenRows="True" ItemsSource="{Binding FoodItem.Rating.Reviews}" BackgroundColor="{StaticResource Accent}">
+                <ListView.Header>
+                    <StackLayout BackgroundColor="{StaticResource BackGround}">
+                        <Image HeightRequest="200" Aspect="AspectFill" Source="{Binding FoodItem.Details.Image, Converter={StaticResource BytesToImageSourceConverter}}"/>
+                        <StackLayout Margin="0,-15,0,0" Spacing="0" HorizontalOptions="Center" VerticalOptions="Start" Orientation="Horizontal">
+                            <Label WidthRequest="30" HeightRequest="30" BackgroundColor="Black" FontAttributes="Bold" FontSize="16" Text="{Binding FoodItem.Rating.OverallRating, StringFormat='{0: 0.0}'}"/>
+                            <Label BackgroundColor="Black" Text="★"></Label>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Margin="0,20,0,0" FontSize="Large" FontAttributes="Bold" Text="{Binding FoodItem.Details.Name}" HorizontalOptions="Center"></Label>
+                            <Label Text="{Binding FoodItem.Details.Description}"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontAttributes="Bold" Text="Price: "/>
+                                <Label Text="{Binding FoodItem.Details.Price}"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontAttributes="Bold" Text="Calories: "/>
+                                <Label Text="{Binding FoodItem.Details.Calories}"/>
+                            </StackLayout>
+                            <Button Command="{Binding OrderCommand}" HeightRequest="40" TextColor="{StaticResource SecondaryAccentText}" Text="Order" IsEnabled="{Binding FoodItem.IsAvailableNow}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="120" x:Name="Order" BackgroundColor="{StaticResource SecondaryAccent}"/>
+                        </StackLayout>
+                        <StackLayout Margin="0,5,0,0" BackgroundColor="{StaticResource Accent}">
+                            <Label TextColor="{StaticResource AccentText}" FontSize="Large" HorizontalOptions="Center" Text="Ratings and reviews"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label VerticalOptions="Center" FontSize="16" TextColor="Black" Text="Add Review: "></Label>
+                                <custom:CustomButton x:Name="AddReviewButton" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Image WidthRequest="40" HeightRequest="40" Source="add_icon" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </custom:CustomButton>
+                            </StackLayout>
+                            <StackLayout Padding="5" x:Name="AddReviewBlock" IsVisible="False">
+                                <rating:SfRating ItemSize="40"/>
+                                <Frame Padding="1" BackgroundColor="Transparent" OutlineColor="Black">
+                                    <Editor HorizontalOptions="Fill" HeightRequest="100"/>
+                                </Frame>
+                                <StackLayout Orientation="Horizontal">
+                                    <Button HeightRequest="40" x:Name="SubmitReviewButton" WidthRequest="100" TextColor="{StaticResource SecondaryAccentText}" BackgroundColor="{StaticResource SecondaryAccent}" Text="Submit"/>
+                                    <Button HeightRequest="40" x:Name="CancelReviewButton" WidthRequest="100" TextColor="{StaticResource SecondaryAccentText}" BackgroundColor="{StaticResource SecondaryAccent}" Text="Cancel"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="Transparent" Padding="1" HasShadow="True" Margin="0,5,0,0" OutlineColor="{StaticResource SecondaryAccent}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="8*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Aspect="AspectFit" WidthRequest="40" HeightRequest="50" Source="user_icon"/>
+                                    <StackLayout Grid.Column="1" Spacing="3">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label FontAttributes="Bold" FontSize="16" TextColor="{StaticResource SecondaryAccentText}" Text="{Binding User}"/>
+                                        </StackLayout>
+                                        <rating:SfRating ReadOnly="True" VerticalOptions="Center" Value="{Binding Rating}" ItemSize="10"/>
+
+                                        <Label LineBreakMode="WordWrap" FontSize="16" TextColor="{StaticResource AccentText}" Text="{Binding Feedback}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

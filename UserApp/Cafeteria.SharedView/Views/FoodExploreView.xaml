@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cafeteria.SharedView.Views.FoodExploreView" BackgroundColor="{StaticResource BackGround}">
+    <ContentPage Title="Available Now">
+        <ListView ItemTapped="OnFoodItemSelected" RowHeight="100" ItemsSource="{Binding AvailableItems}" ItemTemplate="{StaticResource FoodExcerpt}"/>
+    </ContentPage>
+    <ContentPage Title="Complete Menu">
+        <ListView ItemTapped="OnFoodItemSelected" RowHeight="100" ItemsSource="{Binding AllItems}" ItemTemplate="{StaticResource FoodExcerpt}"/>
+    </ContentPage>
+</TabbedPage>

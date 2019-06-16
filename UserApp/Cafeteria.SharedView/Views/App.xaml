@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Cafeteria.SharedView.Converters;assembly=Cafeteria.SharedView"
+             xmlns:xForms="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             x:Class="Cafeteria.SharedView.Views.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <converters:BytesToImageSourceConverter x:Key="BytesToImageSourceConverter"/>
+            <converters:BoolToInverseConverter x:Key="BoolToInverseConverter"/>
+            <Color x:Key="BackGround">#187a87</Color>
+            <Color x:Key="Accent">#c9d6ea</Color>
+            <Color x:Key="AccentText">#5C5353</Color>
+            <Color x:Key="SecondaryAccent">#FFA418</Color>
+            <Color x:Key="SecondaryAccentText">#122a3f</Color>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style x:Key="EntryWithBorder" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="LightGray" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="ChartLabelStyle" TargetType="xForms:ChartAxisLabelStyle">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <DataTemplate x:Key="FoodExcerpt">
+                <ViewCell Height="150">
+                    <Grid BackgroundColor="{StaticResource Accent}" Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image WidthRequest="100" HeightRequest="100" Aspect="AspectFill" Source="{Binding Details.Image, Converter={StaticResource BytesToImageSourceConverter}}"/>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="7*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout>
+                                    <Label FontSize="Medium" FontAttributes="Bold" Text="{Binding Details.Name}" TextColor="{StaticResource AccentText}"/>
+                                    <Label VerticalOptions="Start" TextColor="{StaticResource SecondaryAccentText}" FontSize="Medium" Text="{Binding Details.Price, StringFormat='Rs {0}'}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" Orientation="Horizontal">
+                                    <Label FontAttributes="Bold" TextColor="DarkGreen" FontSize="Medium" Text="{Binding Rating.OverallRating, StringFormat='{0: 0.0}'}" HorizontalOptions="Center"/>
+                                    <Image VerticalOptions="Start" HorizontalOptions="Start" Source="rating_icon" HeightRequest="20" WidthRequest="20"/>
+                                </StackLayout>
+                            </Grid>
+                            <Label VerticalOptions="End" TextColor="{StaticResource AccentText}" Grid.Row="1" Text="{Binding Details.Description}"/>
+                        </Grid>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

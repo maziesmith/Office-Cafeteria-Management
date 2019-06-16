@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xForms="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             x:Class="Cafeteria.SharedView.Views.CafeteriaEvents" BackgroundColor="{StaticResource BackGround}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label HorizontalOptions="Center" FontSize="Large" Text="Events Today" />
+            <ListView HasUnevenRows="True" ItemsSource="{Binding TodayEvents}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="Black" OutlineColor="White">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Medium" Text="{Binding StartTime, StringFormat='{0:hh:mm tt}'}"/>
+                                    <Label FontSize="Medium" Text=" : "/>
+                                    <Label FontSize="Medium" Text="{Binding EndTime, StringFormat='{0:hh:mm tt}'}"/>
+                                    <Label FontSize="Medium" Text="{Binding Description}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <xForms:SfCalendar ShowInlineEvents="True" DataSource="{Binding AllEvents}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,115 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+    <RootNamespace>Cafeteria.SharedView</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\ActionSelection.xaml" />
+    <None Remove="Views\App.xaml" />
+    <None Remove="Views\CafeteriaEvents.xaml" />
+    <None Remove="Views\FoodDetails.xaml" />
+    <None Remove="Views\FoodExploreView.xaml" />
+    <None Remove="Views\Login.xaml" />
+    <None Remove="Views\OrderStatus.xaml" />
+    <None Remove="Views\Payment.xaml" />
+    <None Remove="Views\Stats.xaml" />
+    <None Remove="Views\Wallet.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ActionSelection.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\App.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CafeteriaEvents.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FoodDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FoodExploreView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderStatus.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payment.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Stats.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Wallet.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.1" />
+    <PackageReference Include="System.Reactive" Version="4.0.0-preview00001" />
+    <PackageReference Include="Xamarin.Forms" Version="2.4.0.269-pre2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cafeteria.CoreLibs\Cafeteria.CoreLibs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Syncfusion.SfCalendar.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfCalendar.15.3.0.29\lib\portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Syncfusion.SfCalendar.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfChart.15.3.0.29\lib\portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Syncfusion.SfChart.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNumericUpDown.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfNumericUpDown.15.3.0.29\lib\portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Syncfusion.SfNumericUpDown.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfRating.XForms">
+      <HintPath>..\packages\Syncfusion.Xamarin.SfRating.15.3.0.29\lib\portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Syncfusion.SfRating.XForms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="App.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ActionSelection.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\App.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\CafeteriaEvents.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FoodDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\FoodExploreView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\OrderStatus.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Payment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Stats.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wallet.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

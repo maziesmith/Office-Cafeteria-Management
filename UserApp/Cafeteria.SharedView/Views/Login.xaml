@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:statics="clr-namespace:Cafeteria.SharedView.Statics;assembly=Cafeteria.SharedView"
+             xmlns:custom="clr-namespace:Cafeteria.SharedView.Custom;assembly=Cafeteria.SharedView"
+             x:Class="Cafeteria.SharedView.Views.Login">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout
+				Spacing="0" 
+				AbsoluteLayout.LayoutBounds="0, 0.7, 1, AutoSize" 
+	         	AbsoluteLayout.LayoutFlags="YProportional,WidthProportional">
+                <Label 
+					x:Name="SplashTitle" 
+					Text="MS Cafeteria" 
+					TextColor="{x:Static statics:Palette._018}" 
+					XAlign="Center" 
+					YAlign="Start" 
+					HeightRequest="44" 
+					FontSize="Large"/>
+                <Entry Style="{StaticResource EntryWithBorder}"
+					x:Name="UsernameValueLabel" 
+					Text="" 
+					TextColor="{x:Static statics:Palette._006}" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+					HeightRequest="50"
+                    WidthRequest="200"
+                    Placeholder="Username"/>
+                <StackLayout Padding="1,1,1,1">
+                    <Entry Style="{StaticResource EntryWithBorder}"
+					x:Name="PasswordValueLabel" 
+					Text="" 
+					TextColor="{x:Static statics:Palette._006}" 
+					HorizontalOptions="Center" 
+					VerticalOptions="Start" 
+					HeightRequest="50" 
+                    WidthRequest="200"
+                    Placeholder="Password"/>
+                </StackLayout>
+                <Image Source="splashSlice" Aspect="AspectFit" />
+                <ContentView 
+					BackgroundColor="{x:Static statics:Palette._001}"
+					Padding="20">
+                    <StackLayout>
+                        <ContentView Padding="0,0,0,20">
+                            <AbsoluteLayout 
+								VerticalOptions="FillAndExpand"
+								HorizontalOptions="FillAndExpand">
+                                <custom:CustomButton Scale="0" x:Name="SignInButton" Command="{Binding SignInCommand}"
+                                                     BackgroundColor="{x:Static statics:Palette._002}" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="Center" 
+                                                     HeightRequest="44"
+                                                     WidthRequest="300"
+                                                     AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0" 
+                                                     AbsoluteLayout.LayoutFlags="All">
+                                    <Label HorizontalOptions="Center" VerticalOptions="Center" Text="SIGN IN" TextColor="White" />
+                                </custom:CustomButton>
+                            </AbsoluteLayout>
+                        </ContentView>
+                        <ContentView Padding="0,0,0,20">
+                            <custom:CustomButton Scale="0" x:Name="Register" Command="{Binding SignInCommand}"
+                                                 BackgroundColor="{x:Static statics:Palette._002}" 
+                                                 HorizontalOptions="Center" 
+                                                 VerticalOptions="Center" 
+                                                 HeightRequest="44"
+                                                 WidthRequest="300"
+                                                 AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0" 
+                                                 AbsoluteLayout.LayoutFlags="All">
+                                <Label 
+                                    Text="REGISTER" 
+                                    TextColor="White" 
+                                    BackgroundColor="{x:Static statics:Palette._002}" 
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" />
+                            </custom:CustomButton>
+                            
+                        </ContentView>
+                    </StackLayout>
+                </ContentView>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:Cafeteria.SharedView.Custom;assembly=Cafeteria.SharedView"
+             x:Class="Cafeteria.SharedView.Views.ActionSelection" BackgroundColor="{StaticResource BackGround}">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label FontAttributes="Italic" HorizontalOptions="Center" VerticalOptions="Center" FontSize="28" Text="What would you like to do?" />
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <custom:CustomButton BackgroundColor="{StaticResource Accent}" x:Name="FoodOrderButton">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="food_icon" WidthRequest="50" HeightRequest="50"/>
+                        <Label FontAttributes="Bold" TextColor="{StaticResource AccentText}" HorizontalOptions="Center" Text="Order food"/>
+                    </StackLayout>
+                </custom:CustomButton>
+
+                <custom:CustomButton BackgroundColor="{StaticResource Accent}" Grid.Row="0" Grid.Column="1" x:Name="Wallet">
+                    <StackLayout  HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="wallet_icon" WidthRequest="50" HeightRequest="50"/>
+                        <Label FontAttributes="Bold" TextColor="{StaticResource AccentText}" HorizontalOptions="Center" Text="Wallet"/>
+                    </StackLayout>
+                </custom:CustomButton>
+                <custom:CustomButton BackgroundColor="{StaticResource Accent}" Grid.Row="1" Grid.Column="1" x:Name="CafeteriaEventsButton">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="calendar_icon" WidthRequest="50" HeightRequest="50"/>
+                        <Label FontAttributes="Bold" TextColor="{StaticResource AccentText}" HorizontalOptions="Center" Text="Cafeteria Events"/>
+                    </StackLayout>
+                </custom:CustomButton>
+                <custom:CustomButton BackgroundColor="{StaticResource Accent}" Grid.Row="1" Grid.Column="0" x:Name="StatsButton">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="stats_icon" WidthRequest="50" HeightRequest="50"/>
+                        <Label FontAttributes="Bold" TextColor="{StaticResource AccentText}" HorizontalOptions="Center" Text="View Stats"/>
+                    </StackLayout>
+                </custom:CustomButton>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

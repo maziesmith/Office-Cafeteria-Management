@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xForms="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
+             x:Class="Cafeteria.SharedView.Views.Payment" BackgroundColor="{StaticResource BackGround}">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Margin="10">
+            <Grid ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Item" FontSize="Medium"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Quantity" FontSize="Medium"/>
+                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" Text="{Binding SelectedFood.Details.Name}" />
+                <xForms:SfNumericUpDown TextColor="White" Grid.Row="1" Grid.Column="1" Value="1" SpinButtonAlignment="Right"/>
+            </Grid>
+
+            <Label HorizontalOptions="Fill" HorizontalTextAlignment="Center" TextColor="{StaticResource SecondaryAccent}" BackgroundColor="{StaticResource SecondaryAccentText}" FontSize="Large" Text="Select Payment Method"/>
+            <Grid Padding="10" RowSpacing="40" Margin="0,-20,0,0" BackgroundColor="{StaticResource SecondaryAccentText}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="9*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" IsVisible="False" x:Name="CodSelect" Source="check_icon" HeightRequest="30" WidthRequest="30"/>
+                <Button Grid.Row="0" Grid.Column="1" x:Name="CodButton" HeightRequest="40" Text="Cash on delivery"/>
+
+                <Image HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" IsVisible="False" x:Name="WalletSelect" Source="check_icon" HeightRequest="30" WidthRequest="30"/>
+                <Button Grid.Row="1" Grid.Column="1" x:Name="WalletButton" HeightRequest="40" Text="Wallet"/>
+
+                <Image HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="2" Grid.Column="0" IsVisible="False" x:Name="VoucherSelect" Source="check_icon" HeightRequest="30" WidthRequest="30"/>
+                <Button Grid.Row="2" Grid.Column="1" x:Name="VoucherButton" HeightRequest="40" Text="Voucher"/>
+
+            </Grid>
+
+            <Button Margin="0,30,0,0" HeightRequest="40" WidthRequest="150" BackgroundColor="{StaticResource SecondaryAccent}" TextColor="{StaticResource SecondaryAccentText}" Text="Confirm Order" Command="{Binding ConfirmOrder}"></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

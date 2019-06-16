@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xForms="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             x:Class="Cafeteria.SharedView.Views.Stats" BackgroundColor="{StaticResource BackGround}">
+    <ContentPage Title="Spending Stats" Padding="20">
+        <ScrollView>
+            <StackLayout>
+                <StackLayout BackgroundColor="{StaticResource SecondaryAccentText}" Orientation="Horizontal">
+                    <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Medium" Text="Total Money Spent: Rs"/>
+                    <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Medium" Text="{Binding TotalMoneySpent}"/>
+                </StackLayout>
+                <StackLayout BackgroundColor="{StaticResource SecondaryAccentText}" Orientation="Horizontal">
+                    <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Medium" Text="Per month spend: Rs"/>
+                    <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Medium" Text="{Binding PerMonthSpent}"/>
+                </StackLayout>
+                <Frame BackgroundColor="Transparent" OutlineColor="White">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="Medium" Text="Most bought item: "/>
+                            <Label FontSize="Medium" Text="{Binding MostBought}"/>
+                        </StackLayout>
+                        <xForms:SfChart BackgroundColor="{StaticResource BackGround}" WidthRequest="300" HeightRequest="300">
+                            <xForms:SfChart.Legend>
+                                <xForms:ChartLegend/>
+                            </xForms:SfChart.Legend>
+                            <xForms:PieSeries ItemsSource ="{Binding CountDistribution}"
+                                              XBindingPath="Name" 
+                                              YBindingPath="Value"
+                                              DataMarkerPosition="OutsideExtended" >
+                                <xForms:PieSeries.DataMarker>
+                                    <xForms:ChartDataMarker LabelContent="Percentage" />
+                                </xForms:PieSeries.DataMarker>
+                            </xForms:PieSeries>
+                        </xForms:SfChart>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="Transparent" OutlineColor="White">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="Medium" Text="Most spent on: "/>
+                            <Label FontSize="Medium" Text="{Binding MostSpentOn}"/>
+                        </StackLayout>
+                        <xForms:SfChart BackgroundColor="{StaticResource BackGround}" WidthRequest="300" HeightRequest="300">
+                            <xForms:SfChart.Legend>
+                                <xForms:ChartLegend/>
+                            </xForms:SfChart.Legend>
+
+                            <xForms:PieSeries ItemsSource ="{Binding MoneyDistribution}"
+                                              XBindingPath="Name" 
+                                              YBindingPath="Value"
+                                              DataMarkerPosition="OutsideExtended" >
+                                <xForms:PieSeries.DataMarker>
+                                    <xForms:ChartDataMarker LabelContent="Percentage" />
+                                </xForms:PieSeries.DataMarker>
+                            </xForms:PieSeries>
+                        </xForms:SfChart>
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+    <ContentPage Title="Health Stats" Padding="20">
+        <ScrollView>
+            <StackLayout>
+                <StackLayout BackgroundColor="{StaticResource SecondaryAccentText}" Orientation="Horizontal">
+                    <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Medium" Text="Calories Per Day: "/>
+                    <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Medium" Text="{Binding CaloriesPerDay}"/>
+                </StackLayout>
+                <StackLayout BackgroundColor="{StaticResource SecondaryAccentText}" Orientation="Horizontal">
+                    <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Medium" Text="Calories Per Meal: "/>
+                    <Label TextColor="{StaticResource SecondaryAccent}" FontSize="Medium" Text="{Binding CaloriesPerMeal}"/>
+                </StackLayout>
+                <Frame BackgroundColor="Transparent" OutlineColor="White">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="Medium" Text="Highest calories food consumed: "/>
+                            <Label FontSize="Medium" Text="{Binding HighestCaloriesFood}"/>
+                        </StackLayout>
+                        <xForms:SfChart BackgroundColor="{StaticResource BackGround}" WidthRequest="300" HeightRequest="300">
+                            <xForms:SfChart.Legend>
+                                <xForms:ChartLegend/>
+                            </xForms:SfChart.Legend>
+                            <xForms:PieSeries ItemsSource ="{Binding CaloriesDistribution}"
+                                              XBindingPath="Name" 
+                                              YBindingPath="Value"
+                                              DataMarkerPosition="OutsideExtended" >
+                                <xForms:PieSeries.DataMarker>
+                                    <xForms:ChartDataMarker LabelContent="Percentage" />
+                                </xForms:PieSeries.DataMarker>
+                            </xForms:PieSeries>
+                        </xForms:SfChart>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="Transparent" OutlineColor="White">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="Medium" Text="Calories by food items"/>
+                        </StackLayout>
+                        <xForms:SfChart BackgroundColor="{StaticResource BackGround}" WidthRequest="300" HeightRequest="400">
+
+                            <xForms:SfChart.PrimaryAxis>
+                                <xForms:CategoryAxis>
+                                    <xForms:CategoryAxis.LabelStyle>
+                                        <xForms:ChartAxisLabelStyle TextColor="White"/>
+                                    </xForms:CategoryAxis.LabelStyle>
+
+                                    <xForms:CategoryAxis.Title>
+
+                                        <xForms:ChartAxisTitle TextColor="{StaticResource AccentText}" Text="Food"/>
+
+                                    </xForms:CategoryAxis.Title>
+
+                                </xForms:CategoryAxis>
+
+                            </xForms:SfChart.PrimaryAxis>
+
+                            <xForms:SfChart.SecondaryAxis>
+                                <xForms:NumericalAxis>
+                                    <xForms:NumericalAxis.LabelStyle>
+                                        <xForms:ChartAxisLabelStyle TextColor="White"/>
+                                    </xForms:NumericalAxis.LabelStyle>
+                                    <xForms:NumericalAxis.Title>
+
+                                        <xForms:ChartAxisTitle TextColor="{StaticResource AccentText}" Text="Calories"/>
+
+                                    </xForms:NumericalAxis.Title>
+
+                                </xForms:NumericalAxis>
+
+                            </xForms:SfChart.SecondaryAxis>
+
+
+                            <xForms:ColumnSeries StrokeColor="White" Color="{StaticResource SecondaryAccent}" ItemsSource ="{Binding CaloriesNumbers}"
+                                              XBindingPath="Name" 
+                                              YBindingPath="Value">
+                            </xForms:ColumnSeries>
+                        </xForms:SfChart>
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage>
+</TabbedPage>
