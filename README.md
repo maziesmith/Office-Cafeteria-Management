@@ -11,6 +11,7 @@ The features of the system are:
 2. Realtime tracking and notifications
 3. Review and rating system
 4. Health statistics through various charts
-5. (Optional) For multipurpose cafeteria, calendar showing the schedule for other purposes such as townhall etc.
+5. In-house payment and the real legal way for employers to give food tax exemption to employees.
+6. (Optional) For multipurpose cafeteria, calendar showing the schedule for other purposes such as townhall etc.
 
 
